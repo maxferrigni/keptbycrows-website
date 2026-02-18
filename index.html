@@ -23,10 +23,29 @@ h2{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:400;letter-spacing:
 p{margin-bottom:.25rem;color:var(--feather);font-size:.95rem}
 ul{margin:.15rem 0 .4rem 1.25rem;color:var(--feather);font-size:.95rem}
 ul li{margin-bottom:.1rem}
+
+/* Hero */
 .hero{background:var(--bone);display:flex;align-items:center;justify-content:center}
 .hero-content{max-width:900px;padding:5rem 2rem 1rem;text-align:center}
-.hero-crow{width:90%;max-width:700px;height:auto;margin-bottom:1.5rem;border-radius:0}
+.hero-video{width:90%;max-width:700px;height:auto;margin-bottom:1.5rem;border-radius:0}
 .hero-statement{font-family:"Fraunces",serif;font-size:1.15rem;font-weight:300;color:var(--feather);line-height:1.85;max-width:780px;margin:0 auto;text-align:left;letter-spacing:.01em}
+
+/* Story / Equation Section */
+.story-section{padding:2.5rem 2rem;overflow:hidden}
+.story-wrap{max-width:860px;margin:0 auto}
+.story-equation{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:nowrap}
+.story-side{display:flex;flex-direction:column;align-items:center;gap:.75rem;flex:1;min-width:0}
+.story-side img{width:100%;max-width:220px;height:auto}
+.story-operator{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;color:var(--ink);flex-shrink:0;padding:0 .8rem;align-self:center}
+.story-result{display:flex;flex-direction:column;align-items:center;gap:.75rem;flex:1.2;min-width:0}
+.story-result-pair{display:flex;gap:.75rem;width:100%}
+.story-result-pair img{width:50%;max-width:180px;height:auto}
+.story-label{font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:500;color:var(--ash);text-align:center;letter-spacing:.04em}
+
+/* Before/After section */
+.before-after-wrap{max-width:600px;margin:0 auto}
+.before-after-img{width:100%;height:auto;border-radius:0}
+
 .bg-warm{background:var(--warm)}
 .bg-bone{background:var(--bone)}
 .bg-cream{background:var(--cream)}
@@ -45,7 +64,12 @@ footer p{font-size:.8rem;color:var(--ash);margin:0}
 footer .ft{font-family:'Fraunces',serif;font-style:italic;font-size:.85rem;color:var(--branch)}
 @media(max-width:768px){
 nav{padding:1rem 1.5rem}.nav-links{display:none}section{padding:1.5rem 1.5rem}
-.hero-crow{width:95%}.price-row{flex-direction:column;gap:.25rem}
+.hero-video{width:95%}
+.story-equation{flex-direction:column;gap:1rem}
+.story-operator{font-size:1.8rem;padding:.25rem 0}
+.story-result-pair{justify-content:center}
+.story-result-pair img{max-width:140px}
+.price-row{flex-direction:column;gap:.25rem}
 footer{flex-direction:column;gap:.5rem;text-align:center}
 }
 </style>
@@ -61,12 +85,40 @@ footer{flex-direction:column;gap:.5rem;text-align:center}
   </ul>
 </nav>
 
+<!-- Hero with video -->
 <section class="hero">
   <div class="hero-content">
-    <img src="Kept-By-Crows_Hero.png" alt="Max the Crow" class="hero-crow">
+    <video class="hero-video" autoplay loop muted playsinline>
+      <source src="crow_hero_transition.mp4" type="video/mp4">
+    </video>
     <div class="hero-statement">
       <p>Hi, I'm Max. I live in Glassell Park. In 2025 I watched the Eaton fire tear through Altadena and thought about all the family photos that burned with it — knowing most hadn't been digitized.</p>
       <p>That's why I built Kept by Crows. I take the photos sitting in shoeboxes and turn them into archive-level scans and enhanced versions that go directly into your Google Photos / iPhotos timeline.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Story equation: Shoebox + Crow/AI = Organized + Happy -->
+<section class="story-section bg-cream">
+  <div class="story-wrap">
+    <div class="story-equation">
+      <div class="story-side">
+        <img src="Shoebox_Disarray.png" alt="Your shoebox of photos">
+        <span class="story-label">Your shoebox</span>
+      </div>
+      <span class="story-operator">+</span>
+      <div class="story-side">
+        <img src="crow.png" alt="Kept by Crows" style="max-width:140px">
+        <img src="AI_Scanning.png" alt="AI scanning and enhancement" style="max-width:160px">
+      </div>
+      <span class="story-operator">=</span>
+      <div class="story-result">
+        <div class="story-result-pair">
+          <img src="Happy_Customer.png" alt="Photos on your phone">
+          <img src="Organized_Photos.png" alt="Photos organized and protected">
+        </div>
+        <span class="story-label">Protected &amp; on your phone</span>
+      </div>
     </div>
   </div>
 </section>
@@ -97,8 +149,6 @@ footer{flex-direction:column;gap:.5rem;text-align:center}
     </ul>
   </div>
 </section>
-
-
 
 <section class="bg-dark">
   <div class="wrap">
@@ -141,7 +191,11 @@ footer{flex-direction:column;gap:.5rem;text-align:center}
 </section>
 
 <footer>
-  <p>&copy; 2025 Kept by Crows · Los Angeles, CA</p>
+  <p>&copy; 2025 Kept by Crows &middot; Los Angeles, CA</p>
   <span class="ft">Faces remembered. Photos organized. Built to last.</span>
 </footer>
-<script data-cfas
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
+</script>
+</body>
+</html>
